@@ -34,10 +34,10 @@ for device in [evdev.InputDevice(fn) for fn in evdev.list_devices()]:
     if device.name == "Sony Computer Entertainment Wireless Controller":
         ds3=device
         ds3.grab()
-        print "Identified DS3: "+ds3.fn
+        print ("Identified DS3: "+ds3.fn)
         break
 if ds3 is None:
-    print "DS3 Not found"
+    print ("DS3 Not found")
     exit(1)
 
 # Create a Fake360 UInput Device.
@@ -67,7 +67,7 @@ x360=evdev.UInput({
         ec.BTN_TRIGGER_HAPPY1, #LT
         ec.BTN_TRIGGER_HAPPY2, #RT
     ]}, "DS3 to 360", 0x3)
-print "UInput device created"
+print ("UInput device created")
 
 # Dictionary Maps to translate DS3 input into x360 input
 # You'll notice that some of the inputs are weird, including three buttons 
